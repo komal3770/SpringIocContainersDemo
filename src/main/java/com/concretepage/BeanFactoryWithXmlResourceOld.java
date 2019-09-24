@@ -5,6 +5,10 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
+/**
+ * BeanFactoryWithXmlResourceOld Shows the demo of BeanFactory with XmlBeanFactory which is deprecated.
+ * For alternate version of XmlBeanFactory please refer BeanFactoryWithXmlResourceNew
+ */
 public class BeanFactoryWithXmlResourceOld {
 	
 	@SuppressWarnings("deprecation")
