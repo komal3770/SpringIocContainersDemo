@@ -1,9 +1,9 @@
 package com.concretepage;
 
-public class Entitlement {
+public class MyBean {
 	private String name;
 	private int time;
-	public Entitlement(String name,int time){
+	public MyBean(String name,int time){
 		this.name=name;
 		this.time=time;
 	} 

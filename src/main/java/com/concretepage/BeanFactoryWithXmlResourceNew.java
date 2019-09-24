@@ -20,14 +20,14 @@ public class BeanFactoryWithXmlResourceNew {
 		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         BeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
         reader.loadBeanDefinitions(resource);
-        Entitlement ent = (Entitlement)beanFactory.getBean("entitlement");
+        MyBean ent = (MyBean)beanFactory.getBean("mybean");
         System.out.println(ent.getName()); 
         System.out.println(ent.getTime());
         
         /*Another alternative*/
         System.out.println("====Using ClassPathXmlApplicationContext for defining bean====");
         BeanFactory factory = new ClassPathXmlApplicationContext("spring-app.xml");
-        Entitlement ent2 = (Entitlement)factory.getBean("entitlement");
+        MyBean ent2 = (MyBean)factory.getBean("mybean");
         System.out.println(ent2.getName());
         System.out.println(ent2.getTime());
 	}
