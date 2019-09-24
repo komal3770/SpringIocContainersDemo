@@ -1,8 +1,10 @@
 package com.concretepage;
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -12,6 +14,7 @@ import org.springframework.core.io.Resource;
  */
 public class BeanFactoryWithXmlResourceNew {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		Resource resource = new ClassPathResource("spring-app.xml");
 		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
@@ -20,6 +23,13 @@ public class BeanFactoryWithXmlResourceNew {
         Entitlement ent = (Entitlement)beanFactory.getBean("entitlement");
         System.out.println(ent.getName()); 
         System.out.println(ent.getTime());
+        
+        /*Another alternative*/
+        System.out.println("====Using ClassPathXmlApplicationContext for defining bean====");
+        BeanFactory factory = new ClassPathXmlApplicationContext("spring-app.xml");
+        Entitlement ent2 = (Entitlement)factory.getBean("entitlement");
+        System.out.println(ent2.getName());
+        System.out.println(ent2.getTime());
 	}
 
 }
